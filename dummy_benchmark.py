@@ -2,8 +2,8 @@ from utils import measure_time
 from random import randint
 
 
-class smallObject():
-    
+class SmallObject:
+
     def __init__(self):
         pass
 
@@ -12,14 +12,14 @@ class smallObject():
 
 
 class bigObject():
-    
+
     def __init__(self):
-        self.vector = [a*randint(0,23) for a in range(100000)]
-        self.squares = [a*a*a for a in range(100000)]
+        self.vector = [a * randint(0, 23) for a in range(100000)]
+        self.squares = [a * a * a for a in range(100000)]
         self.countries = {
-            'colombia': (1,200),
-            'alemania': (345,569),
-            'peru': (100,1234),
+            'colombia': (1, 200),
+            'alemania': (345, 569),
+            'peru': (100, 1234),
             'ecuador': (123, 4554),
             'argentina': (456, 948),
             'polonia': (1000, 3000),
@@ -28,11 +28,10 @@ class bigObject():
         self.compound_data = {
             k: sum(self.squares[v[0]: v[1]]) * sum(self.vector[v[0]:v[1]])
             for k, v in self.countries.items()
-            }
+        }
 
     def validate(self, number):
         return number in self.vector and number in self.squares
-
 
 
 @measure_time
